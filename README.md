@@ -13,4 +13,4 @@ To run the project
 npm start
 ```
 ## Output
-![React Logo](./doc/run/pie-table.png)
+![React Logo](./docs/run/pie-table.png)
