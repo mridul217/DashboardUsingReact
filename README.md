@@ -17,4 +17,9 @@ npm install
 npm start
 ```
 ## Output
-![React Logo](https://github.com/mridul217/DashboardUsingReact/blob/main/docs/run/pie-table.png)
+Screen 1
+
+![React Logo](./docs/run/pie-table.png)
+
+Screen 2
+![order page](./docs/run/order-page.png)
