@@ -1,3 +1,6 @@
+# Click to see the deploy app
+[Demo](https://logisticsdashboard-fc616.web.app/)
+
 # Getting Started with DashboardUsingReact
 
 Clone the repo
