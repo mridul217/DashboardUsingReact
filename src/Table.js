@@ -3,6 +3,8 @@ import { Space, Table, Tag } from 'antd';
 import { AppstoreOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import { Pie } from "@ant-design/charts";
+import { Link } from 'react-router-dom'; // Import Link component
+
 
 const Wrapper = styled.div`margin: 64px 32px;`;
 
@@ -74,10 +76,10 @@ const columns = [
         key: 'action',
         render: (_, record) => (
             <Space size="middle">
-                {/* <a>Invite {record.Docket_No}</a> */}
+        <Link to="/order-page">
                 <AppstoreOutlined />
-                {/* <a>Delete</a> */}
-            </Space>
+            </Link>
+            </Space >
         ),
     },
 ];
@@ -124,7 +126,7 @@ const TableData = () => {
     const [pieChartData, setPieChartData] = useState([]);
     const [selectedStatus, setSelectedStatus] = useState(null);
 
-    
+
     const handleBoxClose = () => {
         // Define the logic to close the box (e.g., hide it)
         // You can set some state to conditionally render the box
@@ -199,23 +201,18 @@ const TableData = () => {
         <div>
             <Box>
                 <Wrapper>
-            <CloseButton onClick={handleBoxClose}>
-                    <CloseCircleOutlined />
-                </CloseButton>
+                    <CloseButton onClick={handleBoxClose}>
+                        <CloseCircleOutlined />
+                    </CloseButton>
                     <Flex>
-                        <Pie {...pieChartConfig} data={pieChartData} onPlotClick={handlePieChartClick}/>
+                        <Pie {...pieChartConfig} data={pieChartData} onPlotClick={handlePieChartClick} />
                     </Flex>
                 </Wrapper>
-                    <Table
-                        columns={columns}
-                        dataSource={tableData}
-                        rowClassName={(record) => (
-                            selectedStatus ? (
-                                record.Status.includes(selectedStatus) ? 'pink' : 'yellow'
-                            ) : ''
-                        )}
-                        
-                    />
+                <Table
+                    columns={columns}
+                    dataSource={tableData}
+                    rowClassName={(record, index) => (index % 2 === 0 ? 'even-row' : 'odd-row')}
+                />
             </Box>
         </div>
     );
